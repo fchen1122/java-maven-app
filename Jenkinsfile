@@ -17,7 +17,7 @@ pipeline {
                  sh './jenkins/scripts/deliver.sh'
             }
         }
-            stages {
+
         stage('Input') {
             steps {
                 input('Do you want to proceed?')
@@ -29,6 +29,6 @@ pipeline {
                 print('hello')
             }
         }
-    }
+
     }
 }
