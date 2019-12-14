@@ -1,26 +1,23 @@
 #!/usr/bin/env bash
 
-#echo 'The following Maven command installs your Maven-built Java application'
-#echo 'into the local Maven repository, which will ultimately be stored in'
-#echo 'Jenkins''s local Maven repository (and the "maven-repository" Docker data'
-#echo 'volume).'
+echo 'Install jar in local'
 set -x
 mvn jar:jar install:install help:evaluate -Dexpression=project.name
 set +x
 
-#echo 'The following complex command extracts the value of the <name/> element'
-#echo 'within <project/> of your Java/Maven project''s "pom.xml" file.'
+echo 'extracts the value of the <name/> element within <project/> of pom.xml file'
 set -x
 NAME=`mvn help:evaluate -Dexpression=project.name | grep "^[^\[]"`
 set +x
 
-#echo 'The following complex command behaves similarly to the previous one but'
-#echo 'extracts the value of the <version/> element within <project/> instead.'
+echo 'extracts the value of the <version/> element within <project/>'
 set -x
 VERSION=`mvn help:evaluate -Dexpression=project.version | grep "^[^\[]"`
 set +x
 
-echo 'Runs and outputs the execution of Java'
+echo 'Runs and outputs the execution of Java, then deploy to desitination server(s) /tmp folder'
 echo 'application to the Jenkins UI.'
 set -x
 java -jar target/${NAME}-${VERSION}.jar
+scp -p target/${NAME}-${VERSION}.jar root@centos-node1:/tmp
+scp -p target/${NAME}-${VERSION}.jar root@centos-node2:/tmp
