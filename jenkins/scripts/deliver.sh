@@ -18,5 +18,5 @@ set +x
 echo 'Runs and outputs the execution of Java, then deploy to desitination server(s) /tmp folder'
 set -x
 java -jar target/${NAME}-${VERSION}.jar
-scp -p target/${NAME}-${VERSION}.jar root@centos-node1:/tmp
-scp -p target/${NAME}-${VERSION}.jar root@centos-node2:/tmp
+scp -v -o StrictHostKeyChecking=no target/${NAME}-${VERSION}.jar root@centos-node1:/tmp
+
