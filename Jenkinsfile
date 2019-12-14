@@ -26,7 +26,7 @@ pipeline {
 
         stage('If Proceed is clicked') {
             steps {
-                 sh 'scp -p target/${NAME}-${VERSION}.jar root@centos-node1:/tmp'
+                 sh 'scp -p /root/deployFolder/*.jar root@centos-node1:/tmp'
             }
         }
 
