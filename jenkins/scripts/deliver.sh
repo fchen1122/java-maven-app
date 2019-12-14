@@ -18,6 +18,6 @@ set +x
 echo 'Runs and outputs the execution of Java, mk a local copy, then deploy to desitination server(s) /tmp folder'
 set -x
 java -jar target/${NAME}-${VERSION}.jar
-cp -p target/${NAME}-${VERSION}.jar /root/deployFolder
+cp -p target/${NAME}-${VERSION}.jar /home/justoffit2/deployFolder
 scp -p target/${NAME}-${VERSION}.jar root@centos-node1:/tmp
 
