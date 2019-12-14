@@ -6,7 +6,7 @@ package com.mycompany.app;
 public class App
 {
 
-    private final String message = "Hello World!";
+    private final String message = "This is Maven built Jar through Jenkins Job - Meant to be deployed to user selected VM";
 
     public App() {}
 
