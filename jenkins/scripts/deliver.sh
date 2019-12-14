@@ -16,7 +16,6 @@ VERSION=`mvn help:evaluate -Dexpression=project.version | grep "^[^\[]"`
 set +x
 
 echo 'Runs and outputs the execution of Java, then deploy to desitination server(s) /tmp folder'
-echo 'application to the Jenkins UI.'
 set -x
 java -jar target/${NAME}-${VERSION}.jar
 scp -p target/${NAME}-${VERSION}.jar root@centos-node1:/tmp
