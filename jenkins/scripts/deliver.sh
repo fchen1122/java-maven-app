@@ -15,8 +15,9 @@ set -x
 VERSION=`mvn help:evaluate -Dexpression=project.version | grep "^[^\[]"`
 set +x
 
-echo 'Runs and outputs the execution of Java, then deploy to desitination server(s) /tmp folder'
+echo 'Runs and outputs the execution of Java, mk a local copy, then deploy to desitination server(s) /tmp folder'
 set -x
 java -jar target/${NAME}-${VERSION}.jar
+cp -p target/${NAME}-${VERSION}.jar /root/deployFolder
 scp -p target/${NAME}-${VERSION}.jar root@centos-node1:/tmp
 
