@@ -20,13 +20,13 @@ pipeline {
 
         stage('Input') {
             steps {
-                input('Do you want to proceed?')
+                input('Do you want to proceed with deployment to server 10.128.0.5?')
             }
         }
 
         stage('If Proceed is clicked') {
             steps {
-                print('hello')
+                 sh 'scp -p target/${NAME}-${VERSION}.jar root@centos-node1:/tmp'
             }
         }
 
