@@ -18,13 +18,13 @@ pipeline {
             }
         }
 
-        stage('Input') {
+        stage('User Input - Destination Server Confirm') {
             steps {
                 input('Do you want to proceed with deployment to server 10.128.0.5?')
             }
         }
 
-        stage('If Proceed is clicked') {
+        stage('Deploy after User Confirm') {
             steps {
                  sh 'scp -p /home/justoffit2/deployFolder/*.jar root@centos-node1:/tmp'
             }
